@@ -1,0 +1,35 @@
+{{!-- import React from 'react';
+import {{componentName}} from '@mui/material/{{componentName}}';
+
+interface {{pascalCase wrapperName}}Props extends React.ComponentProps<typeof {{componentName}}> {
+  children?: React.ReactNode;
+}
+
+const {{pascalCase wrapperName}}: React.FC<{{pascalCase wrapperName}}Props> = (props) => {
+  return (
+    <{{componentName}} {...props}>
+      {props.children}
+    </{{componentName}}>
+  );
+};
+
+export default {{pascalCase wrapperName}};
+ --}}
+
+
+import { ComponentPropsWithRef } from "react";
+import { {{componentName}} as MUIComponent, {{componentName}}Props } from "@mui/material";
+
+interface MergeProps extends Omit<{{componentName}}Props, keyof ComponentPropsWithRef<'button'>> {
+  //Add additional prop definitions here
+}
+/**
+ * @uxpindocurl https://mui.com/api/{{componentName}}/
+ */
+const {{pascalCase componentName}} = (props: MergeProps) => {
+  return (
+      <MUIComponent {...props}/>
+  );
+};
+
+export default {{pascalCase componentName}};
